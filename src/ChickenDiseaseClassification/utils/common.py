@@ -53,4 +53,22 @@ def create_directories(path_to_directories: list, verbose=True):
             logger.error(f"Error creating directory {path}: {e}")
             raise
 
+@ensure_annotations
+def get_size(path: Path) -> str:
+    """
+    Gets the size of a file in kilobytes.
+
+    Args:
+        path (Path): Path of the file.
+
+    Returns:
+        str: Size of the file rounded to the nearest kilobyte, represented as a string.
+    """
+    try:
+        size_in_kb = round(os.path.getsize(path) / 1024)
+        return f"~ {size_in_kb} KB"
+    except Exception as e:
+        logger.error(f"Error getting size for {path}: {e}")
+        raise
+
 
