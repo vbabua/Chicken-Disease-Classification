@@ -2,7 +2,7 @@
 import os
 from pathlib import Path
 import yaml
-from box import ConfigBox, BoxValueError
+from box import ConfigBox
 from ChickenDiseaseClassification import logger  
 import joblib
 from ensure import ensure_annotations
